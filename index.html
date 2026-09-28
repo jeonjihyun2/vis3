@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>美国签证背景自测｜了解你的个人背景</title>
+<style>
+:root{
+  --ink:#171717;
+  --muted:#77736c;
+  --paper:#f4f0e8;
+  --paper2:#ebe5d9;
+  --white:#fffdf8;
+  --accent:#e65d3f;
+  --accent2:#f3b35b;
+  --line:#d8d0c3;
+  --green:#3e6b58;
+  --shadow:0 18px 50px rgba(33,28,20,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);background:var(--paper);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;
+}
+button{font:inherit}
+.hidden{display:none!important}
+a{color:inherit}
+.topline{height:5px;background:var(--ink)}
+.header{
+  max-width:1180px;margin:auto;padding:22px 28px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.logo{font-size:14px;letter-spacing:.18em;text-transform:uppercase;font-weight:900}
+.logo span{color:var(--accent)}
+.header-note{font-size:12px;color:var(--muted);letter-spacing:.05em}
+
+.wrap{max-width:1180px;margin:auto;padding:20px 28px 90px}
+
+/* HOME */
+.hero{
+  min-height:590px;display:grid;grid-template-columns:1.15fr .85fr;
+  gap:60px;align-items:center;border-top:1px solid var(--line);
+}
+.hero-copy{padding:45px 0}
+.kicker{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:24px;
+}
+.kicker:before{content:"";width:30px;height:2px;background:var(--accent)}
+.hero h1{
+  font-size:clamp(54px,8vw,106px);line-height:.92;letter-spacing:-.065em;
+  margin:0 0 28px;font-weight:900;max-width:760px;
+}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-desc{max-width:590px;color:#625e57;font-size:16px;line-height:1.9;margin:0 0 32px}
+.cta{
+  border:0;background:var(--ink);color:white;border-radius:0;
+  padding:16px 24px;cursor:pointer;font-weight:800;
+  display:inline-flex;align-items:center;gap:20px;
+  transition:.2s transform,.2s background;
+}
+.cta:hover{background:var(--accent);transform:translateY(-2px)}
+.cta .arrow{font-size:20px}
+.hero-visual{
+  min-height:430px;background:var(--ink);color:white;position:relative;
+  padding:34px;display:flex;flex-direction:column;justify-content:space-between;
+  overflow:hidden;
+}
+.hero-visual:before{
+  content:"";position:absolute;width:270px;height:270px;border-radius:50%;
+  background:var(--accent);right:-80px;top:-80px;
+}
+.hero-visual:after{
+  content:"";position:absolute;width:180px;height:180px;border:1px solid rgba(255,255,255,.18);
+  border-radius:50%;right:50px;bottom:48px;
+}
+.stamp{font-size:11px;letter-spacing:.16em;opacity:.65;position:relative;z-index:1}
+.big-mark{
+  position:relative;z-index:1;font-size:clamp(100px,15vw,190px);
+  line-height:.75;font-weight:900;letter-spacing:-.08em;
+}
+.visual-bottom{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:end}
+.visual-bottom strong{font-size:17px}
+.visual-bottom small{font-size:11px;color:#bbb7ae;max-width:170px;line-height:1.5;text-align:right}
+
+.home-strip{
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  display:grid;grid-template-columns:repeat(3,1fr);margin-top:20px;
+}
+.home-stat{padding:28px 24px;border-right:1px solid var(--line)}
+.home-stat:last-child{border-right:0}
+.home-stat b{font-size:34px;display:block;letter-spacing:-.04em;margin-bottom:5px}
+.home-stat span{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* QUIZ */
+.quiz-shell{max-width:1000px;margin:0 auto;padding-top:25px}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 18px}
+.quiz-top .section{font-size:11px;letter-spacing:.15em;font-weight:900;text-transform:uppercase}
+.quiz-top .counter{font-size:13px;color:var(--muted)}
+.quiz-layout{display:grid;grid-template-columns:190px 1fr;gap:55px;padding-top:38px}
+.side{
+  border-right:1px solid var(--line);padding-right:28px;min-height:580px;
+}
+.side-label{font-size:11px;letter-spacing:.14em;color:var(--muted);font-weight:800;margin-bottom:18px}
+.side-num{font-size:76px;line-height:.8;font-weight:900;letter-spacing:-.08em}
+.side-title{margin-top:18px;font-size:13px;line-height:1.6;color:var(--muted)}
+.mini-progress{height:2px;background:#d8d0c3;margin-top:30px}
+.mini-progress b{display:block;height:100%;background:var(--accent);transition:.3s}
+.side-tip{margin-top:28px;font-size:11px;color:#918b81;line-height:1.7}
+
+.question-area{min-width:0}
+.question-kicker{font-size:11px;color:var(--accent);font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.q-title{font-size:clamp(32px,5vw,54px);letter-spacing:-.05em;line-height:1.02;margin:12px 0 12px}
+.q-help{font-size:13px;color:var(--muted);margin:0 0 28px;line-height:1.7}
+.options{display:grid;gap:0;border-top:1px solid var(--ink)}
+.option{
+  border:0;border-bottom:1px solid var(--line);background:transparent;
+  min-height:68px;padding:17px 5px;display:flex;align-items:center;
+  justify-content:space-between;text-align:left;cursor:pointer;transition:.18s;
+}
+.option:hover{padding-left:14px;background:rgba(255,255,255,.45)}
+.option.selected{background:var(--ink);color:white;padding-left:18px;padding-right:18px}
+.option-left{display:flex;align-items:center;gap:15px}
+.radio{
+  width:19px;height:19px;border:1.5px solid #9a9388;border-radius:50%;
+  flex:none;display:grid;place-items:center;
+}
+.selected .radio{border-color:white}
+.selected .radio:after{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent2)}
+.option-label{font-size:15px;font-weight:700}
+.option-num{font-size:10px;color:#aaa298;letter-spacing:.08em}
+.selected .option-num{color:#aaa59d}
+.quiz-actions{display:flex;justify-content:space-between;align-items:center;margin-top:26px}
+.back{
+  border:0;background:none;padding:12px 0;color:var(--muted);cursor:pointer;font-size:13px;
+}
+.next{
+  border:0;background:var(--accent);color:white;padding:14px 21px;cursor:pointer;font-weight:800;
+}
+.next:disabled{opacity:.35;cursor:not-allowed}
+
+/* RESULT */
+.result-shell{max-width:1000px;margin:auto;padding-top:30px}
+.result-head{border-top:1px solid var(--ink);padding-top:22px}
+.result-eyebrow{font-size:11px;letter-spacing:.15em;color:var(--accent);font-weight:900}
+.result-head h1{font-size:clamp(46px,7vw,84px);letter-spacing:-.065em;line-height:.9;margin:15px 0 30px}
+.result-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:18px}
+.score-panel{background:var(--ink);color:white;padding:32px;min-height:330px;display:flex;flex-direction:column;justify-content:space-between}
+.score-label{font-size:11px;letter-spacing:.14em;color:#a8a39b;font-weight:800}
+.score-number{font-size:108px;letter-spacing:-.09em;line-height:.78;font-weight:900}
+.score-number span{font-size:35px;letter-spacing:-.02em;color:#a8a39b}
+.score-line{height:5px;background:#403e3a;position:relative}
+.score-line b{position:absolute;left:0;top:0;bottom:0;background:var(--accent2);width:0;transition:1s ease}
+.score-note{font-size:12px;color:#aaa59d;line-height:1.6}
+.summary-panel{background:var(--white);border:1px solid var(--line);padding:32px}
+.result-tag{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.08em;border:1px solid var(--line);padding:7px 10px;margin-bottom:22px}
+.summary-panel h2{font-size:27px;letter-spacing:-.035em;margin:0 0 12px}
+.summary-panel p{color:#68635b;line-height:1.8;font-size:14px;margin:0}
+
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.report-block{background:var(--white);border-top:3px solid var(--ink);padding:25px 27px}
+.report-block.alert{border-top-color:var(--accent)}
+.report-block h3{font-size:14px;margin:0 0 17px}
+.report-block ul{margin:0;padding:0;list-style:none}
+.report-block li{font-size:13px;line-height:1.65;padding:10px 0;border-top:1px solid var(--line)}
+.report-block li:first-child{border-top:0}
+.report-block li:before{content:"—";margin-right:9px;color:var(--accent)}
+
+.ai{
+  margin-top:18px;background:#e6dfd2;padding:28px;
+  border-left:6px solid var(--accent);
+}
+.ai-head{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid #c9c0b2;padding-bottom:15px}
+.ai-head h3{margin:0;font-size:18px}
+.ai-head span{font-size:10px;letter-spacing:.14em;color:#7c756b;font-weight:900}
+.ai-body{white-space:pre-wrap;color:#514c45;line-height:1.85;font-size:14px;margin-top:18px}
+.result-actions{display:flex;justify-content:center;gap:10px;margin-top:24px}
+.dark-btn,.light-btn{border:0;padding:13px 18px;cursor:pointer;font-weight:800}
+.dark-btn{background:var(--ink);color:white}.light-btn{background:transparent;border:1px solid var(--ink)}
+.disclaimer{text-align:center;color:#918b81;font-size:11px;line-height:1.7;margin-top:25px}
+
+@media(max-width:800px){
+  .header,.wrap{padding-left:18px;padding-right:18px}
+  .hero{grid-template-columns:1fr;gap:20px;min-height:auto}
+  .hero-copy{padding:48px 0 20px}
+  .hero-visual{min-height:330px}
+  .home-strip{grid-template-columns:1fr}
+  .home-stat{border-right:0;border-bottom:1px solid var(--line)}
+  .home-stat:last-child{border-bottom:0}
+  .quiz-layout{grid-template-columns:1fr;gap:20px}
+  .side{border-right:0;border-bottom:1px solid var(--line);min-height:auto;padding:0 0 20px;display:grid;grid-template-columns:auto 1fr;column-gap:18px}
+  .side-label{grid-column:1/-1;margin-bottom:8px}
+  .side-num{font-size:52px}
+  .side-title{margin-top:0}
+  .mini-progress{grid-column:1/-1;margin-top:16px}
+  .side-tip{display:none}
+  .result-grid,.columns{grid-template-columns:1fr}
+  .score-panel{min-height:270px}
+  .score-number{font-size:86px}
+}
+@media(max-width:520px){
+  .hero h1{font-size:56px}
+  .hero-desc{font-size:14px}
+  .q-title{font-size:37px}
+  .option{min-height:62px}
+  .result-head h1{font-size:52px}
+  .score-panel,.summary-panel,.report-block,.ai{padding:23px}
+  .result-actions{flex-direction:column}
+  .dark-btn,.light-btn{width:100%}
+}
+@media print{
+  .header,.result-actions{display:none!important}
+  body{background:white}
+  .wrap{padding:0}
+  .score-panel{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+}
+
+/* Friendly interaction layer */
+button { -webkit-tap-highlight-color: transparent; }
+.cta, .next, .back, .option {
+  transition: transform .14s ease, box-shadow .14s ease, background .14s ease, border-color .14s ease, opacity .14s ease;
+}
+.cta:hover, .next:not(:disabled):hover { transform: translateY(-2px); }
+.cta:active, .next:not(:disabled):active, .back:active, .option:active { transform: scale(.98); }
+.next:disabled { cursor: not-allowed; opacity: .38; transform: none; }
+.option { cursor: pointer; }
+.option.selected {
+  border-color: #111 !important;
+  background: #111 !important;
+  color: #fff !important;
+  box-shadow: 6px 6px 0 #f26b3a;
+}
+.option.selected * { color: #fff !important; }
+.option:focus-visible, button:focus-visible {
+  outline: 3px solid #f26b3a;
+  outline-offset: 3px;
+}
+#choiceHint {
+  margin-top: 14px;
+  font-size: 13px;
+  color: #777;
+  min-height: 18px;
+}
+@media (max-width: 720px) {
+  .option { min-height: 58px; }
+  .cta, .next, .back { min-height: 50px; }
+}
+
+
+/* Mobile reading and touch layout */
+body { -webkit-text-size-adjust:100%; }
+button { touch-action:manipulation; }
+.hero h1,.q-title,.result-head h1 { line-height:1.15; letter-spacing:-.035em; }
+.hero h1 span { color:var(--accent); }
+.option-left { min-width:0; }
+.option-label { line-height:1.6; overflow-wrap:anywhere; }
+.option-num { flex:none; margin-left:12px; }
+.option.selected { box-shadow:none; }
+.score-number #num { font-size:inherit; color:white; }
+.ai-body { overflow-wrap:anywhere; }
+.q-title:focus,.result-head h1:focus { outline:none; }
+@media(max-width:800px){
+ .header { gap:12px; flex-wrap:wrap; padding-top:18px; padding-bottom:16px; }
+ .header-note { font-size:10px; }
+ .hero-copy { padding:30px 0 8px; }
+ .hero h1 { font-size:clamp(42px,11vw,72px); margin-bottom:20px; }
+ .kicker { font-size:10px; letter-spacing:.08em; margin-bottom:18px; }
+ .hero-desc { font-size:16px; line-height:1.85; margin-bottom:24px; }
+ .cta { width:100%; justify-content:space-between; min-height:56px; border-radius:8px; }
+ .hero-visual { min-height:200px; padding:24px; border-radius:12px; gap:24px; }
+ .big-mark { font-size:84px; }
+ .visual-bottom { gap:16px; }
+ .visual-bottom strong { font-size:15px; }
+ .visual-bottom small { font-size:12px; }
+ .home-stat { padding:18px 4px; display:flex; align-items:center; gap:20px; }
+ .home-stat b { font-size:26px; margin:0; }
+ .home-stat span { font-size:14px; }
+ .quiz-shell { padding-top:0; }
+ .quiz-top { padding-bottom:14px; gap:12px; }
+ .quiz-top .section { font-size:10px; letter-spacing:.04em; }
+ .counter { white-space:nowrap; }
+ .quiz-layout { gap:24px; padding-top:18px; }
+ .side { grid-template-columns:auto 1fr; align-items:center; padding-bottom:0; border:0; column-gap:12px; }
+ .side-label,.side-title { display:none; }
+ .side-num { font-size:28px; line-height:1; }
+ .mini-progress { grid-column:auto; margin:0; height:5px; border-radius:10px; overflow:hidden; }
+ .q-title { font-size:clamp(28px,7.5vw,38px); margin:10px 0 12px; }
+ .q-help { font-size:14px; margin-bottom:20px; }
+ .options { border:0; gap:10px; }
+ .option { border:1px solid var(--line); background:var(--white); border-radius:10px; padding:15px; min-height:60px; }
+ .option:hover { padding-left:15px; }
+ .option.selected { padding:15px; }
+ .option-label { font-size:16px; }
+ #quiz { padding-bottom:calc(120px + env(safe-area-inset-bottom)); }
+ .quiz-actions { position:fixed; z-index:10; left:0; right:0; bottom:0; margin:0; padding:12px max(18px,env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left)); background:var(--paper); border-top:1px solid var(--line); gap:16px; }
+ .back { min-height:50px; padding:12px 4px; font-size:14px; }
+ .next { min-height:50px; flex:1; max-width:320px; border-radius:8px; }
+ .result-shell { padding-top:8px; }
+ .result-head h1 { font-size:clamp(34px,9vw,52px); }
+ .score-panel { min-height:260px; border-radius:12px; }
+ .summary-panel,.report-block { border-radius:12px; }
+ .summary-panel p,.report-block li,.ai-body { font-size:16px; line-height:1.85; }
+ .score-note,.disclaimer { font-size:13px; }
+ .ai { border-left-width:4px; border-radius:0 12px 12px 0; }
+ .ai-head { flex-wrap:wrap; gap:10px; }
+ .dark-btn,.light-btn { min-height:52px; border-radius:8px; }
+}
+@media(prefers-reduced-motion:reduce){
+ html { scroll-behavior:auto; }
+ *,*::before,*::after { transition:none!important; animation:none!important; }
+}
+@media print {
+ .quiz-actions { display:none!important; }
+ .result-grid,.columns { display:block; }
+ .score-panel,.summary-panel,.report-block { break-inside:avoid; margin-bottom:16px; }
+}
+
+
+/* Clear assessment landing page */
+.topline {height:3px;background:var(--accent);}
+.header {padding-top:24px;padding-bottom:24px;}
+.logo {display:flex;align-items:center;gap:8px;font-size:17px;letter-spacing:.03em;}
+.brand-dot {width:10px;height:10px;border-radius:50%;background:var(--accent);}
+.header-note {letter-spacing:.04em;}
+.welcome {display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:center;border-top:1px solid var(--line);padding:64px 0 40px;}
+.test-badge {display:inline-flex;align-items:center;gap:8px;border:1px solid #dfc9b7;background:#f9eddf;border-radius:30px;padding:9px 14px;font-size:13px;color:#8f442c;font-weight:700;}
+.test-badge>span {width:6px;height:6px;background:var(--accent);border-radius:50%;}
+.welcome h1 {font-size:clamp(38px,4.8vw,64px);line-height:1.28;letter-spacing:-.045em;margin:24px 0;}
+.welcome h1 span {display:block;color:#bf5035;}
+.welcome-desc {font-size:16px;line-height:1.95;color:#686158;max-width:510px;margin:0 0 24px;}
+.test-meta {display:flex;flex-wrap:wrap;gap:10px 20px;font-size:13px;color:#605c54;margin-bottom:24px;}
+.test-meta span+span {padding-left:20px;border-left:1px solid #cfc4b4;}
+.welcome .cta {min-width:250px;justify-content:space-between;border-radius:12px;background:#242b27;padding:18px 22px;box-shadow:0 6px 16px #242b2714;}
+.welcome .cta:hover {background:#3e5748;}
+.welcome-note {font-size:12px;line-height:1.8;color:#746d62;margin:16px 0 0;max-width:420px;}
+.report-preview {background:#e5e9df;border:1px solid #d6ddcd;border-radius:24px;padding:26px;transform:rotate(1deg);}
+.preview-top {display:flex;justify-content:space-between;align-items:center;color:#455546;font-size:13px;font-weight:700;margin-bottom:22px;}
+.preview-symbol {font-size:23px;}
+.preview-paper {background:#fffdf8;border-radius:14px;padding:30px 26px 20px;box-shadow:0 14px 28px #3d4b3510;}
+.preview-caption {font-size:12px;color:#787366;}
+.preview-paper h2 {font-size:29px;line-height:1.45;letter-spacing:-.025em;margin:12px 0 24px;}
+.preview-row {display:flex;align-items:center;gap:14px;border-top:1px solid #e8e4da;padding:18px 0;}
+.preview-icon {width:36px;height:36px;flex-shrink:0;display:grid;place-items:center;border-radius:12px;background:#e8eee5;color:#45684c;font-weight:700;font-size:18px;}
+.preview-icon.warm {background:#faeadd;color:#a65a35;}
+.preview-icon.neutral {background:#eeece6;color:#645d50;}
+.preview-row h3 {margin:0 0 5px;font-size:15px;}
+.preview-row p {margin:0;color:#777166;font-size:12px;line-height:1.7;}
+.preview-footer {border-top:1px dashed #d9d2c5;padding-top:16px;font-size:11px;color:#837c70;}
+@media(max-width:800px){
+ .header {padding-top:20px;padding-bottom:20px;}
+ #home {padding-top:4px;padding-bottom:40px;}
+ .welcome {grid-template-columns:1fr;gap:32px;padding:28px 0 0;}
+ .welcome h1 {font-size:clamp(32px,8.6vw,54px);margin:20px 0;line-height:1.35;}
+ .welcome-desc {font-size:15px;line-height:1.9;margin-bottom:20px;}
+ .test-meta {margin-bottom:20px;}
+ .welcome .cta {min-width:0;width:100%;}
+ .welcome-note {font-size:12px;}
+ .report-preview {transform:none;border-radius:20px;padding:20px;}
+ .preview-top {margin-bottom:16px;}
+ .preview-paper {padding:24px 20px 20px;}
+ .preview-paper h2 {font-size:25px;}
+}
+
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<header class="header">
+  <div class="logo"><span class="brand-dot" aria-hidden="true"></span> 赴美自测</div>
+  <div class="header-note">了解背景，从容准备</div>
+</header>
+
+<main id="home" class="wrap">
+  <section class="welcome">
+    <div class="welcome-copy">
+      <div class="test-badge"><span></span> 美国签证 · 背景自测</div>
+      <h1>赴美之前，<br>先了解<span>自己的背景。</span></h1>
+      <p class="welcome-desc">回答一组简单问题，梳理你的工作或学业、经济情况与旅行计划，看看有哪些优势、哪些地方需要提前准备。</p>
+      <div class="test-meta"><span>23 道选择题</span><span>完成即看报告</span></div>
+      <button id="startBtn" class="cta" type="button">开始我的测评 <span class="arrow" aria-hidden="true">↗</span></button>
+      <p class="welcome-note">请按真实情况作答。自测结果仅供参考，不代表签证通过率。</p>
+    </div>
+    <aside class="report-preview" aria-label="测评报告内容介绍">
+      <div class="preview-top"><span>你的背景，一目了然</span><span class="preview-symbol" aria-hidden="true">↗</span></div>
+      <div class="preview-paper">
+        <div class="preview-caption">完成测评后，你将获得</div>
+        <h2>一份更清晰的<br>个人背景报告</h2>
+        <div class="preview-row"><span class="preview-icon" aria-hidden="true">✓</span><div><h3>了解相对优势</h3><p>梳理已有经历与个人条件</p></div></div>
+        <div class="preview-row"><span class="preview-icon warm" aria-hidden="true">!</span><div><h3>发现需要关注的地方</h3><p>看清需要进一步说明的信息</p></div></div>
+        <div class="preview-row"><span class="preview-icon neutral" aria-hidden="true">↗</span><div><h3>理清准备方向</h3><p>让出行计划与背景信息更清楚</p></div></div>
+        <div class="preview-footer">基于你的回答整理 · 仅供个人参考</div>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<main id="quiz" class="wrap hidden">
+  <div class="quiz-shell">
+    <div class="quiz-top">
+      <div class="section">Assessment / Questions</div>
+      <div id="count" class="counter"></div>
+    </div>
+    <div class="quiz-layout">
+      <aside class="side">
+        <div class="side-label">CURRENT</div>
+        <div id="sideNum" class="side-num">01</div>
+        <div id="sideTitle" class="side-title">年龄段</div>
+        <div class="mini-progress"><b id="bar"></b></div>
+        <div class="side-tip">没有标准答案。选择与你目前实际情况最接近的一项。</div>
+      </aside>
+      <section class="question-area">
+        <div id="qbox"></div><div id="choiceHint" aria-live="polite">请选择一项后继续</div>
+        <div class="quiz-actions">
+          <button id="backBtn" class="back" type="button">← 返回上一题</button>
+          <button id="next" class="next" type="button" disabled>下一题 ↗</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<main id="result" class="wrap hidden">
+  <div class="result-shell">
+    <section class="result-head">
+      <div class="result-eyebrow">ASSESSMENT / REPORT</div>
+      <h1>你的背景<br>已经整理好了。</h1>
+    </section>
+
+    <section class="result-grid">
+      <div class="score-panel">
+        <div class="score-label">INTERNAL SCORE</div>
+        <div class="score-number"><span id="num">0</span><span>%</span></div>
+        <div class="score-line"><b id="scoreLine"></b></div>
+        <div class="score-note">这是本工具的内部评分结果，不是政府公布的实际签证通过率。</div>
+      </div>
+      <div class="summary-panel">
+        <div id="tag" class="result-tag">测评完成</div>
+        <h2 id="title">背景评估已完成</h2>
+        <p id="summary"></p>
+      </div>
+    </section>
+
+    <section class="columns">
+      <div class="report-block">
+        <h3>相对优势 / STRENGTHS</h3>
+        <ul id="good"></ul>
+      </div>
+      <div class="report-block alert">
+        <h3>需要关注 / WATCH</h3>
+        <ul id="bad"></ul>
+      </div>
+    </section>
+
+    <section class="ai">
+      <div class="ai-head">
+        <h3>个性化分析</h3>
+        <span>PERSONAL ANALYSIS</span>
+      </div>
+      <div id="ai" class="ai-body">正在分析……</div>
+    </section>
+
+    <div class="result-actions">
+      <button class="light-btn" onclick="location.reload()">重新测评</button>
+      <button class="dark-btn" onclick="window.print()">保存 / 打印报告</button>
+    </div>
+    <div class="disclaimer">请确保所有申请信息真实、完整，并与正式申请表及材料保持一致。本工具仅供信息参考。</div>
+  </div>
+</main>
+
+<script>
+const AI={endpoint:"",key:"",model:""};
+
+const C=[
+["年龄段",[["18-23","18–23岁",7],["24-30","24–30岁",8],["31-45","31–45岁",10],["46-60","46–60岁",8],["60+","60岁以上",6]]],
+["婚姻状况",[["已婚","已婚",10],["未婚","未婚",6],["离异","离异",5],["丧偶","丧偶",5]]],
+["户籍所在地",[["一线","一线城市",10],["二线","新一线 / 二线城市",8],["三四线","三四线城市",6],["县城","县城 / 农村",4]]],
+["过往美签经历",[["无","从未申请",6],["有效","曾获批且有效",10],["拒签","曾有拒签记录",2],["过期","曾有美签但已过期",7]]],
+["出境旅行经历",[["无","从未出过国",2],["发展中国家","主要是发展中国家",5],["发达国家","有发达国家旅行记录",8],["多国","多次、多国旅行",10]]],
+["赴美主要目的",[["旅游","旅游",8],["商务","商务",8],["探亲","探亲",5],["留学","留学",6],["会议","会议 / 活动",7],["就医","就医",3]]],
+["计划停留时间",[["1周","1周以内",9],["1-2周","1–2周",9],["2-4周","2–4周",7],["1-3月","1–3个月",5],["3月","3个月以上",3]]],
+["在美国是否有亲属",[["无","没有",10],["远亲","远亲",7],["直系","直系亲属",4],["配偶","配偶 / 子女",2],["移民","有明确移民计划",1]]],
+["出行方式",[["独自","独自出行",5],["配偶","与配偶同行",9],["家人","与家人同行",8],["朋友","与朋友同行",7],["跟团","跟团 / 小团",6]]],
+["犯罪或重大违法记录",[["无","无",10],["轻微","轻微违法记录",3],["严重","严重犯罪记录",0]]],
+["费用承担方式",[["自费","本人承担",10],["公司","公司承担",8],["家人","家人承担",4]]],
+["国内生活稳定度",[["高","工作、家庭、生活稳定",10],["中","总体稳定",8],["一般","一般",6],["低","近期变化较多",3]]]
+];
+
+const A=[
+["就业状况",[["在职","稳定在职",10],["创业","自主创业",7],["失业","目前失业",2],["退休","退休",6],["学生","学生 / 待业",4]]],
+["单位类型",[["国企","国企 / 政府 / 事业单位",10],["外企","外企",9],["大型民企","大型民企",8],["中小民企","中小民企",5],["自由职业","自由职业",4]]],
+["月收入",[["5k","5,000 元以下",2],["5-10k","5,000–10,000 元",4],["10-20k","10,000–20,000 元",7],["20-50k","20,000–50,000 元",9],["50k","50,000 元以上",10]]],
+["工作年限",[["1年","1年以内",4],["1-3年","1–3年",6],["3-5年","3–5年",8],["5-10年","5–10年",10],["10年","10年以上",9]]],
+["最高学历",[["高中","高中及以下",4],["大专","大专",6],["本科","本科",8],["硕士","硕士",9],["博士","博士",10]]],
+["名下房产",[["无","无",3],["1套","1套",8],["2套","2套及以上",10]]],
+["车辆",[["无","无",4],["1辆","1辆",8],["2辆","2辆及以上",10]]],
+["银行存款",[["5万","5 万以下",2],["5-20","5–20 万",5],["20-50","20–50 万",7],["50-100","50–100 万",9],["100万","100 万以上",10]]],
+["子女情况",[["无","无",5],["1个","1 个",9],["2个","2 个及以上",10]]],
+["职位级别",[["基层","基层",4],["中级","中级",6],["高级","高级",8],["管理","管理层",9],["高管","高管 / 企业主",10]]],
+["国内长期安排",[["强","明确且稳定",10],["较强","比较稳定",8],["一般","一般",6],["弱","不稳定",3]]]
+];
+
+const S=[
+["就读年级",[["大一","大一",4],["大二","大二",9],["大三","大三",10],["大四","大四",4],["研究生","研一 / 研二",7],["博士","博士",8],["其他","已毕业 / 其他",5]]],
+["院校层次",[["C9","C9",10],["985","985",9],["211","211",8],["普通公办","普通公办",6],["民办","民办",4],["专科","专科",3],["高中","高中",5]]],
+["专业类别",[["STEM","理工科 / STEM",9],["商科","商科 / 经济 / 金融",8],["人文","文科 / 艺术 / 人文",7],["医学","医学 / 生命科学",8],["其他","其他",5]]],
+["父母经济状况",[["富裕","非常富裕",10],["较好","较好",8],["中等","中等",6],["一般","一般",4],["困难","困难",2]]],
+["父母职业",[["公务员国企","公务员 / 国企 / 事业单位",10],["企业主","企业主 / 经商",8],["外企","外企专业人士",9],["职员","普通职员",6],["个体","个体经营",5],["其他","务工 / 务农 / 其他",3]]],
+["家庭房产",[["无","无",3],["1套","1套",7],["2套","2套及以上",10]]],
+["学业成绩",[["前10","前 10%",10],["前30","前 30%",8],["中等","中等",6],["较差","中下 / 较差",3],["NA","不适用",5]]],
+["实习经验",[["无","无",3],["6月","6 个月以内",6],["6-12","6–12 个月",8],["1年","1 年以上",10]]],
+["毕业后规划",[["回国","明确回国发展",10],["深造","继续深造",7],["未定","尚未确定",4],["海外","希望国外工作",2]]],
+["课外活动",[["无","无",3],["社团","社团成员",6],["负责人","负责人 / 学生干部",8],["成果","竞赛奖项 / 学术成果",10]]],
+["兄弟姐妹",[["独生","独生子女",10],["1个","1 个兄弟姐妹",7],["2个","2 个以上",5]]]
+];
+
+let qs=[],ans={},i=0,branch="adult";
+
+function start(){
+  document.getElementById("home").classList.add("hidden");document.getElementById("quiz").classList.remove("hidden");
+  ans={};i=0;branch="adult";qs=C.slice();draw();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function draw(moveFocus=true){
+  const q=qs[i], total=C.length+A.length;
+  document.getElementById("count").textContent=`${String(i+1).padStart(2,"0")} / ${total}`;
+  document.getElementById("sideNum").textContent=String(i+1).padStart(2,"0");
+  document.getElementById("sideTitle").textContent=q[0];
+  document.getElementById("bar").style.width=((i+1)/total*100)+"%";
+  const box=document.getElementById("qbox");
+  box.innerHTML='<div class="question-kicker">Question '+String(i+1).padStart(2,"0")+'</div>'+
+    '<h2 class="q-title" id="questionTitle" tabindex="-1">'+q[0]+'</h2>'+
+    '<p class="q-help">请选择与你目前真实情况最接近的一项。</p><div class="options" role="group" aria-labelledby="questionTitle"></div>';
+  q[1].forEach((o,n)=>{
+    const btn=document.createElement("button");
+    btn.type="button";btn.className="option"+(ans[q[0]]===o[0]?" selected":"");
+    btn.setAttribute("aria-pressed",String(ans[q[0]]===o[0]));
+    btn.innerHTML='<span class="option-left"><span class="radio" aria-hidden="true"></span><span class="option-label">'+o[1]+'</span></span><span class="option-num" aria-hidden="true">'+String(n+1).padStart(2,"0")+'</span>';
+    btn.addEventListener("click",()=>choose(o[0]));
+    box.querySelector(".options").appendChild(btn);
+  });
+  document.getElementById("next").textContent=i===total-1?"查看结果 ↗":"下一题 ↗";
+  document.getElementById("next").disabled=!ans[q[0]];
+  document.getElementById("backBtn").textContent=i===0?"← 返回首页":"← 上一题";
+  document.getElementById("choiceHint").textContent=ans[q[0]]?"已选择，可继续":"请选择一项后继续";
+  if(moveFocus){window.scrollTo({top:0,behavior:"instant"});document.getElementById("questionTitle").focus({preventScroll:true});}
+}
+function choose(v){
+  const q=qs[i];ans[q[0]]=v;
+  if(q[0]==="年龄段"){
+    const newBranch=v==="18-23"?"student":"adult";
+    if(branch!==newBranch) [...A,...S].forEach(item=>delete ans[item[0]]);
+    branch=newBranch;qs=C.concat(branch==="student"?S:A);
+  }
+  document.querySelectorAll(".option").forEach((btn,n)=>{
+    const selected=q[1][n][0]===v;
+    btn.classList.toggle("selected",selected);btn.setAttribute("aria-pressed",String(selected));
+  });
+  document.getElementById("next").disabled=false;
+  document.getElementById("choiceHint").textContent="已选择，可继续";
+}
+function next(){
+  if(!ans[qs[i][0]])return;
+  if(i<qs.length-1){i++;draw()}else showResult();
+}
+function prev(){
+  if(i===0){document.getElementById("quiz").classList.add("hidden");document.getElementById("home").classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"})}
+  else{i--;draw()}
+}
+function calc(){
+  let t=0,m=0;
+  qs.forEach(q=>{
+    m+=Math.max(...q[1].map(x=>x[2]));
+    let o=q[1].find(x=>x[0]===ans[q[0]]);
+    if(o)t+=o[2];
+  });
+  return{t,m,p:Math.round(t/m*100)}
+}
+function showResult(){
+  document.getElementById("quiz").classList.add("hidden");resultBox();document.getElementById("result").classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function resultBox(){
+  let r=calc(),level=r.p>=70?"low":r.p>=50?"mid":"high";
+  document.getElementById("num").textContent=r.p;
+  document.getElementById("scoreLine").style.width=r.p+"%";
+  document.getElementById("tag").textContent=level==="low"?"整体条件较稳":level==="mid"?"存在需要关注的因素":"建议重点准备";
+  document.getElementById("title").textContent=level==="low"?"整体背景较完整":level==="mid"?"有优势，也有需要解释的地方":"建议先梳理薄弱环节";
+  document.getElementById("summary").textContent="这份结果来自本工具内部评分模型，用于整理你填写的信息。它不是美国政府公布的实际通过率，也不能预测具体签证决定。";
+  let g=[],b=[];
+  if(["多国","发达国家"].includes(ans["出境旅行经历"]))g.push("有一定国际旅行经历，可作为背景的一部分。");
+  if(ans["过往美签经历"]==="有效")g.push("有既往有效美签记录。");
+  if(ans["就业状况"]==="在职")g.push("目前有稳定就业状态。");
+  if(ans["名下房产"]==="1套"||ans["名下房产"]==="2套")g.push("存在国内固定资产因素。");
+  if(ans["毕业后规划"]==="回国")g.push("毕业后规划较明确。");
+  if(ans["国内生活稳定度"]==="高")g.push("国内工作、家庭和生活安排较稳定。");
+  if(!g.length)g.push("已完成完整信息填写，建议结合全部答案综合判断。");
+
+  if(ans["过往美签经历"]==="拒签")b.push("曾有拒签记录，建议认真梳理前次申请情况。");
+  if(ans["出境旅行经历"]==="无")b.push("缺少国际旅行记录，需要更重视赴美目的与整体背景的一致性。");
+  if(ans["计划停留时间"]==="3月")b.push("计划停留时间较长，需要能够合理解释。");
+  if(["直系","配偶"].includes(ans["在美国是否有亲属"]))b.push("美国亲属情况需要如实说明并保持材料一致。");
+  if(ans["毕业后规划"]==="未定"||ans["毕业后规划"]==="海外")b.push("毕业规划需要更具体，并与真实学业和职业安排保持一致。");
+  if(ans["国内生活稳定度"]==="低")b.push("近期国内工作、家庭或生活安排变化较多，需要梳理整体叙事。");
+  if(!b.length)b.push("没有触发明显的重点提示项，但仍应确保所有信息真实一致。");
+
+  document.getElementById("good").innerHTML=g.slice(0,5).map(x=>"<li>"+x+"</li>").join("");
+  document.getElementById("bad").innerHTML=b.slice(0,5).map(x=>"<li>"+x+"</li>").join("");
+  document.getElementById("ai").textContent=localAI(r,g,b);
+  if(AI.endpoint&&AI.key)remoteAI(r).then(x=>document.getElementById("ai").textContent=x);
+}
+function localAI(r,g,b){
+  return "综合分析：你的模型得分为 "+r.p+"%。建议把注意力放在赴美目的、停留时间、费用来源以及回国后的工作/学习安排是否能够前后一致。\n\n相对优势：\n"+
+  g.map(x=>"• "+x).join("\n")+
+  "\n\n需要关注：\n"+b.map(x=>"• "+x).join("\n")+
+  "\n\n准备建议：\n• 用简洁、真实的语言说明赴美目的。\n• 确保回答与申请表及其他材料一致。\n• 不要为了提高测评结果而修改真实信息。\n• 对较弱环节提前准备能够如实解释的事实和材料。";
+}
+async function remoteAI(r){
+  try{
+    let prompt="请中立分析一个美国非移民签证背景测评。不要承诺通过率，不要声称代表签证官。请用中文输出整体分析、优势、风险、准备建议。用户数据："+JSON.stringify({score:r.p,branch,answers:ans});
+    let x=await fetch(AI.endpoint,{
+      method:"POST",
+      headers:{"Content-Type":"application/json","Authorization":"Bearer "+AI.key},
+      body:JSON.stringify({model:AI.model,messages:[{role:"user",content:prompt}],temperature:.4})
+    });
+    let d=await x.json();
+    return d.choices?.[0]?.message?.content||ai.textContent;
+  }catch(e){return ai.textContent}
+}
+
+document.getElementById("startBtn").addEventListener("click",start);
+document.getElementById("backBtn").addEventListener("click",prev);
+document.getElementById("next").addEventListener("click",next);
+</script>
+</body>
+</html>
